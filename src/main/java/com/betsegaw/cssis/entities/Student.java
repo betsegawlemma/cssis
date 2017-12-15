@@ -52,15 +52,36 @@ public class Student {
             inverseJoinColumns = @JoinColumn(name = "parent_id"))
     private Set<Parent> parents = new HashSet<>();
 
+    public Student addParent(Parent parent){
+        this.parents.add(parent);
+        parent.getStudents().add(this);
+        return this;
+    }
+
+    public void removeParent(Parent parent){
+        this.parents.remove(parent);
+        parent.getStudents().remove(this);
+    }
+
     @ElementCollection
     private Set<StudentStatus> studentStatuses;
 
-    @ManyToMany
-    @JoinTable(name = "student_grade",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "grade_id"))
-    private Set<Grade> grades = new HashSet<>();
+    @ElementCollection
+    private Set<Assessement> assessements;
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private Set<Enrollment> enrollments = new HashSet<>();
+
+    public Student addEnrollment(Enrollment enrollment){
+        this.enrollments.add(enrollment);
+        enrollment.setStudent(this);
+        return this;
+    }
+
+    public void removeEnrollment(Enrollment enrollment){
+        this.enrollments.remove(enrollment);
+        enrollment.setStudent(null);
+    }
 
 
 }

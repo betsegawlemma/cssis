@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,5 +26,19 @@ public class Teacher {
 
     @Temporal(TemporalType.DATE)
     private Date hiredDate;
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Enrollment> enrollments = new HashSet<>();
+
+    public Teacher addEnrollment(Enrollment enrollment){
+        this.enrollments.add(enrollment);
+        enrollment.setTeacher(this);
+        return this;
+    }
+
+    public void removeEnrollment(Enrollment enrollment){
+        this.enrollments.remove(enrollment);
+        enrollment.setTeacher(null);
+    }
 
 }

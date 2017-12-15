@@ -27,4 +27,18 @@ public class Grade {
     @ManyToMany(mappedBy = "grades")
     Set<Student> students;
 
+    @OneToMany(mappedBy = "grade", cascade = CascadeType.ALL)
+    private Set<Enrollment> enrollments = new HashSet<>();
+
+    public Grade addEnrollment(Enrollment enrollment){
+        this.enrollments.add(enrollment);
+        enrollment.setGrade(this);
+        return this;
+    }
+
+    public void removeEnrollment(Enrollment enrollment){
+        this.enrollments.remove(enrollment);
+        enrollment.setGrade(null);
+    }
+
 }
