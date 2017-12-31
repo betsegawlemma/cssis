@@ -19,12 +19,13 @@ public class CourseEnrollment {
     @ManyToOne
     private Student student;
     @NotNull
+    @ManyToOne
     private Course course;
 
     private int academicYear;
 
     private Semester semester;
 
-    transient private float mark;
+    transient private float totalMark;
 
 }

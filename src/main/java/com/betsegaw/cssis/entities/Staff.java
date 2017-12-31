@@ -22,6 +22,7 @@ public class Staff {
     private String middleName;
     @NotNull
     private String lastName;
+    @Enumerated(value = EnumType.STRING)
     private Role role;
     private String nationality;
     private Address address;

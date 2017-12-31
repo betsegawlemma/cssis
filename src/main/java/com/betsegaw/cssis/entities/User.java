@@ -4,10 +4,7 @@ package com.betsegaw.cssis.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -25,5 +22,6 @@ public class User {
     private String phone;
     private String email;
     @NotNull
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 }

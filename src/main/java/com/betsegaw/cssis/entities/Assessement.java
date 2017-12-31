@@ -5,13 +5,19 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Getter
 @Setter
-@Embeddable
+@Entity
 public class Assessement {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @NotNull
+    @ManyToOne
     private Course course;
     @NotNull
     private Month month;
@@ -24,29 +30,7 @@ public class Assessement {
     @NotNull
     private Semester semester;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    @ManyToMany(mappedBy = "assessments")
+    private Set<Student> students;
 
-        Assessement that = (Assessement) o;
-
-        if (outOf != that.outOf) return false;
-        if (academicYear != that.academicYear) return false;
-        if (!course.equals(that.course)) return false;
-        if (month != that.month) return false;
-        if (!round.equals(that.round)) return false;
-        return semester == that.semester;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = course.hashCode();
-        result = 31 * result + month.hashCode();
-        result = 31 * result + round.hashCode();
-        result = 31 * result + outOf;
-        result = 31 * result + academicYear;
-        result = 31 * result + semester.hashCode();
-        return result;
-    }
 }

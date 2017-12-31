@@ -15,16 +15,10 @@ public class TeacherEnrollment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @ManyToOne
     private Grade grade;
 
     @NotNull
     @ManyToOne
     private Course course;
-
-    private int academicYear;
-
-    private Semester semester;
 
 }

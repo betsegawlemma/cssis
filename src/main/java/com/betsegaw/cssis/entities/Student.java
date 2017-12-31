@@ -64,11 +64,28 @@ public class Student {
     }
 
     @ElementCollection
+    @CollectionTable(
+            name = "student_status",
+            joinColumns = @JoinColumn(name = "student_id"))
+    @Column(name = "student_status")
     private Set<StudentStatus> studentStatuses;
 
-    @ElementCollection
-    private Set<Assessement> assessements;
+    @ManyToMany
+    @JoinTable(name = "student_assessment",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "assessment_id"))
+    private Set<Assessement> assessments = new HashSet<>();;
 
 
+    public Student addAssessment(Assessement assessement){
+        this.assessments.add(assessement);
+        assessement.getStudents().add(this);
+        return this;
+    }
+
+    public void removeAssessment(Assessement assessement){
+        this.assessments.remove(assessement);
+        assessement.getStudents().remove(this);
+    }
 
 }

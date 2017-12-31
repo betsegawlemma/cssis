@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -14,6 +16,7 @@ public class StudentStatus {
     @NotNull
     private int academicYear;
     @NotNull
+    @Enumerated(value = EnumType.STRING)
     private Status status;
     private int rank;
 
