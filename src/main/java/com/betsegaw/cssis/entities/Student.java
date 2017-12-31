@@ -69,19 +69,6 @@ public class Student {
     @ElementCollection
     private Set<Assessement> assessements;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private Set<Enrollment> enrollments = new HashSet<>();
-
-    public Student addEnrollment(Enrollment enrollment){
-        this.enrollments.add(enrollment);
-        enrollment.setStudent(this);
-        return this;
-    }
-
-    public void removeEnrollment(Enrollment enrollment){
-        this.enrollments.remove(enrollment);
-        enrollment.setStudent(null);
-    }
 
 
 }

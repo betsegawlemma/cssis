@@ -23,6 +23,7 @@ public class Staff {
     @NotNull
     private String lastName;
     private Role role;
+    private String nationality;
     private Address address;
 
     @Temporal(TemporalType.DATE)

@@ -5,21 +5,26 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
-@Embeddable
-public class Grade {
+@Entity
+public class CourseEnrollment {
 
-    @Enumerated(value = EnumType.STRING)
-    private GradeType gradeType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @NotNull
-    private String section;
+    @ManyToOne
+    private Student student;
     @NotNull
+    private Course course;
+
     private int academicYear;
-    @NotNull
+
     private Semester semester;
+
+    transient private float mark;
 
 }
