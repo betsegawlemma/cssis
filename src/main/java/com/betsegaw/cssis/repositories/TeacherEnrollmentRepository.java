@@ -1,7 +1,6 @@
 package com.betsegaw.cssis.repositories;
 
 import com.betsegaw.cssis.entities.Course;
-import com.betsegaw.cssis.entities.Grade;
 import com.betsegaw.cssis.entities.GradeType;
 import com.betsegaw.cssis.entities.TeacherEnrollment;
 import org.springframework.data.jpa.repository.JpaRepository;
