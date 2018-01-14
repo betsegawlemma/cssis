@@ -1,6 +1,6 @@
 package com.betsegaw.cssis.services;
 
-import com.betsegaw.cssis.entities.Role;
+import com.betsegaw.cssis.enums.Role;
 import com.betsegaw.cssis.entities.User;
 
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.betsegaw.cssis.entities;
+package com.betsegaw.cssis.enums;
 
 public enum Field {
 

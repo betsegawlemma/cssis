@@ -1,6 +1,6 @@
 package com.betsegaw.cssis.repositories;
 
-import com.betsegaw.cssis.entities.Role;
+import com.betsegaw.cssis.enums.Role;
 import com.betsegaw.cssis.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

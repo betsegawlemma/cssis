@@ -1,12 +1,13 @@
 package com.betsegaw.cssis.entities;
 
+import com.betsegaw.cssis.enums.Field;
+import com.betsegaw.cssis.enums.GradeGroup;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -16,19 +17,17 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String courseCode;
-    @NotNull
+
     @Lob
     @NotNull
+    @NotBlank
     private String subject;
 
-    @NotNull
     @NotNull
     @Enumerated(value = EnumType.STRING)
     private GradeGroup gradeGroup;
 
-    @NotNull
     @NotNull
     @Enumerated(value = EnumType.STRING)
     private Field field;

@@ -1,9 +1,12 @@
 package com.betsegaw.cssis.entities;
 
+import com.betsegaw.cssis.enums.Semester;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -26,6 +29,6 @@ public class CourseEnrollment {
 
     private Semester semester;
 
-    transient private float totalMark;
+    private float totalMark;
 
 }

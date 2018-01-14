@@ -1,7 +1,7 @@
 package com.betsegaw.cssis.repositories;
 
 import com.betsegaw.cssis.entities.Course;
-import com.betsegaw.cssis.entities.GradeGroup;
+import com.betsegaw.cssis.enums.GradeGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

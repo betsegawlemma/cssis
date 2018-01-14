@@ -1,5 +1,6 @@
 package com.betsegaw.cssis.entities;
 
+import com.betsegaw.cssis.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,7 @@ public class Staff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private String staffId;
+    private String staffId; // Staff Identification Number given by the institute where the staff is working
     @NotNull
     private String firstName;
     private String middleName;

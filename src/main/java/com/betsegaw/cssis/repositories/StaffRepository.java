@@ -11,6 +11,9 @@ import java.util.Set;
 public interface StaffRepository extends JpaRepository<Staff,Long> {
     Optional<Staff> findByStaffId(String staffId);
     Set<Staff> findByFirstName(String firstName);
+    Set<Staff> findByMiddleName(String middleName);
     Set<Staff> findByLastName(String lastName);
+    Set<Staff> findByFirstNameAndMiddleName(String firstName, String middleName);
+    Set<Staff> findByFirstNameAndMiddleNameAndLastName(String firstName, String middleName, String lastName);
     Set<Staff> findByNationality(String nationality);
 }

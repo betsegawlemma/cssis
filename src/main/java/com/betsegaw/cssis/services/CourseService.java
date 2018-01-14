@@ -1,7 +1,7 @@
 package com.betsegaw.cssis.services;
 
 import com.betsegaw.cssis.entities.Course;
-import com.betsegaw.cssis.entities.GradeGroup;
+import com.betsegaw.cssis.enums.GradeGroup;
 
 import java.util.Set;
 

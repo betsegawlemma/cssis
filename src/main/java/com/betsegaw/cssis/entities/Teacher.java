@@ -19,6 +19,7 @@ public class Teacher {
 
     private String teacherId;
     private String firstName;
+    private String middleName;
     private String lastName;
     private String nationality;
     private String subjectSpeciality;

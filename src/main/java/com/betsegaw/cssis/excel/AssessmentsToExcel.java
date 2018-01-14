@@ -1,5 +1,5 @@
 package com.betsegaw.cssis.excel;
 
-public class ExportToExcel {
+public class AssessmentsToExcel {
 
 }

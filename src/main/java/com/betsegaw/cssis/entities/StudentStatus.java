@@ -1,5 +1,6 @@
 package com.betsegaw.cssis.entities;
 
+import com.betsegaw.cssis.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 

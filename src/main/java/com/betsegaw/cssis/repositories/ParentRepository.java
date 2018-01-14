@@ -9,7 +9,10 @@ import java.util.Set;
 
 @Repository
 public interface ParentRepository extends JpaRepository<Parent,Long> {
-    Optional<Parent> findByFirstName(String firstName);
-    Optional<Parent> findByLastName(String lastName);
+    Set<Parent> findByFirstName(String firstName);
+    Set<Parent> findByMiddleName(String middleName);
+    Set<Parent> findByLastName(String lastName);
+    Set<Parent> findByFirstNameAndMiddleName(String firstName, String middleName);
+    Set<Parent> findByFirstNameAndMiddleNameAndLastName(String firstName, String middleName, String lastName);
     Set<Parent> findByNationality(String nationality);
 }

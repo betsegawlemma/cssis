@@ -1,5 +1,6 @@
 package com.betsegaw.cssis.entities;
 
+import com.betsegaw.cssis.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String studentId;
+    private String studentId; // Student Identification Number given by the school
     @NotNull
     private String firstName;
     private String middleName;
@@ -70,22 +71,19 @@ public class Student {
     @Column(name = "student_status")
     private Set<StudentStatus> studentStatuses;
 
-    @ManyToMany
-    @JoinTable(name = "student_assessment",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "assessment_id"))
-    private Set<Assessement> assessments = new HashSet<>();;
+    @OneToMany(mappedBy = "student")
+    private Set<Assessment> assessments = new HashSet<>();;
 
 
-    public Student addAssessment(Assessement assessement){
+    public Student addAssessment(Assessment assessement){
         this.assessments.add(assessement);
-        assessement.getStudents().add(this);
+        assessement.setStudent(this);
         return this;
     }
 
-    public void removeAssessment(Assessement assessement){
+    public void removeAssessment(Assessment assessement){
         this.assessments.remove(assessement);
-        assessement.getStudents().remove(this);
+        assessement.setStudent(null);
     }
 
 }
