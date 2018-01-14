@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ExcelUtility {
 
-    public static Workbook getWorkbook(FileInputStream inputStream, String excelFilePath)
+    public static Workbook getWorkbookForRead(FileInputStream inputStream, String excelFilePath)
             throws IOException {
         Workbook workbook = null;
 
@@ -19,6 +19,21 @@ public class ExcelUtility {
             workbook = new XSSFWorkbook(inputStream);
         } else if (excelFilePath.endsWith("xls")) {
             workbook = new HSSFWorkbook(inputStream);
+        } else {
+            throw new IllegalArgumentException("The specified file is not Excel file");
+        }
+
+        return workbook;
+    }
+
+    public static Workbook getWorkbookForWrite(String excelFilePath)
+            throws IOException {
+        Workbook workbook = null;
+
+        if (excelFilePath.endsWith("xlsx")) {
+            workbook = new XSSFWorkbook();
+        } else if (excelFilePath.endsWith("xls")) {
+            workbook = new HSSFWorkbook();
         } else {
             throw new IllegalArgumentException("The specified file is not Excel file");
         }
